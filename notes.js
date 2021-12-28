@@ -1,7 +1,7 @@
 const chalk = require('chalk')
 const fs = require('fs')
 
-function addNote(title, body){
+const addNote = (title, body) => {
     const notes = loadNotes()
     for(let i = 0; i < notes.length; i++){
         if(notes[i].title == title){
@@ -19,7 +19,7 @@ function addNote(title, body){
     console.log(chalk.green('Note added!'))
 }
 
-function removeNote(title){
+const removeNote = (title) => {
     let notes = loadNotes(), found = false
     for(let i = 0; i < notes.length; i++){
         if(notes[i].title == title){
@@ -39,7 +39,7 @@ function removeNote(title){
     }
 }
 
-function readNote(title){
+const readNote = (title) => {
     const notes = loadNotes()
     for(let i = 0; i < notes.length; i++){
         if(notes[i].title == title){
@@ -51,7 +51,7 @@ function readNote(title){
     console.log(chalk.red('Note with entered title doesn\'t exist.'))
 }
 
-function listNotes(){
+const listNotes = () => {
     const notes  = loadNotes()
     if(notes.length == 0){
         console.log(chalk.red('No notes exist.'))
@@ -64,11 +64,11 @@ function listNotes(){
     }
 }
 
-function about(){
+const about = () => {
     console.log(chalk.yellow(`Created by Darshan Tailor.`))
 }
 
-function loadNotes(){
+const loadNotes = () => {
     try{
         const dataBuffer = fs.readFileSync('notes.json')
         const dataJSON = dataBuffer.toString()
