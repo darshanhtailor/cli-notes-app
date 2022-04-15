@@ -3,6 +3,7 @@ const fs = require('fs')
 
 const addNote = (title, body) => {
     const notes = loadNotes()
+    debugger
     for(let i = 0; i < notes.length; i++){
         if(notes[i].title == title){
             console.log(chalk.red('Entered title is already in use.'))
